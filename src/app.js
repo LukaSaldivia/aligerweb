@@ -11,7 +11,8 @@ const __dirname = path.dirname(__filename);
 
 
 // Imports
-import usuariosRouter from './routes/usuarios.js'
+import adminRoutes from './routes/admin/admin.js'
+import pageRoutes from './routes/page/page.js'
 
 
 const app = express()
@@ -25,7 +26,8 @@ app.set('views',path.join(__dirname,'views'))
 app.use(morgan('dev'))
 
 // Routes
-app.use('/usuarios',usuariosRouter)
+app.use('/',pageRoutes)
+app.use('/admin',adminRoutes)
 
 // Static files
 app.use(express.static(path.join(__dirname,'public')))
@@ -33,3 +35,4 @@ app.use(express.static(path.join(__dirname,'public')))
 app.listen(app.get('port'),()=>{
   console.log('Server on port',app.get('port'));
 })
+

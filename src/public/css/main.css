@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica+SC&family=Manrope:wght@200;500;700&family=Montserrat:wght@100;200;300;400;500&family=Poppins:wght@300;400;600;700;800&family=Raleway:wght@100;200;500&family=Staatliches&display=swap');
+
+
+:root{
+  --clr-background: #f2f2f2;
+  --clr-background-shade: #dbe0e7;
+  --clr-primary: #000fe4;
+  --clr-primary-shade: #001d6d;
+  --clr-secondary: #5959f3;
+  --clr-accent: #7858b3; 
+  --clr-gray : #ddd;
+
+  --fs-100: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+  --fs-200: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+  --fs-300: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --fs-400: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+  --fs-500: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+  --fs-600: clamp(1.9438rem, 1.7707rem + 0.8652vw, 2.4413rem);
+  --fs-700: clamp(2.3325rem, 2.0823rem + 1.2511vw, 3.0519rem);
+  --fs-800: clamp(2.7994rem, 2.4461rem + 1.7663vw, 3.815rem);
+
+  --ff-base: 'Manrope',sans-serif;
+}
+
+*,::before,::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: var(--ff-base);
+}
+
+.content-grid,
+.full-width{
+
+  
+  --_padding-inline : 1rem;
+  --_content-max-width : 100ch;
+
+
+  --content-size: min(100% - (var(--_padding-inline) * 2), var(--_content-max-width));
+  --full-width-size: minmax(var(--_padding-inline) , auto);
+
+  display: grid;
+  grid-template-columns:
+  [full-width-start] var(--full-width-size) [content-start] var(--content-size) [content-end] var(--full-width-size) [full-width-end]
+  ;
+}
+
+:is(.content-grid,.full-width) > :not(.full-width){
+  grid-column: content;
+}
+
+
+.content-grid > .full-width{
+  grid-column: full-width;
+}
+
+
+body{
+  background-color: var(--clr-background);
+  font-size: var(--fs-200);
+  min-height: 500vh;
+}
+
+p,a{
+  font-size: var(--fs-100);
+}
+
+a{
+  color: var(--clr-secondary);
+  text-decoration: none;
+}
+
+a:hover{
+  color: var(--clr-accent);
+}
+
+input, button {
+  border-style: none;
+}
+
+:is(input, button):focus{
+   outline-style: none;
+}
+
+input{
+  caret-color: var(--clr-primary);
+}
+

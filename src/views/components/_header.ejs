@@ -1,4 +1,176 @@
 <%- include('./_head.ejs',{ title }) %>
-<header>
-  
+<header anner-header class="content-grid">
+  <div class="contact full-width">
+    <a href="#">2494 111 111</a>
+    <a href="/login">¿Sos cliente? Acceder</a>
+  </div>
+    <main>
+    <a href="/">
+      <img src="/img/aliger-logo.jpg" alt="Logo de Aliger">
+    </a>
+
+    <form action="/buscar" method="post" role="search">
+      <input type="text" placeholder="Buscar">
+      <button type="submit"><img src="/img/lupa.png" alt=""></button>
+    </form>
+
+  </main>
+
+  <div class="full-width links">
+    <nav>
+      <a href="/">Inicio</a><a href="/">Productos</a><a href="">Acerca de nosotros</a><a href="">Contacto</a>
+    </nav>
+  </div>
+
 </header>
+
+<main class="content-grid">
+<style>
+  [anner-header]{
+    background-color: var(--clr-background);
+    position: sticky;
+    row-gap: 1rem;
+
+    &.active{
+      top : var(--_top);
+    }
+
+    & .contact {
+      grid-template-rows: 0;
+      background-color: var(--clr-background-shade);
+      padding-block: .4rem;
+
+      transition: grid-template-rows .5s ease-out;
+
+      & [href="/login"]{
+        justify-self: end;
+      }
+
+      & a:hover{
+        text-decoration: underline;
+      }
+    }
+    
+    & main{
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: 1fr;
+      justify-items: center;
+      align-items: center;
+
+
+
+
+      & a {
+
+        display: inline-flex;
+
+        justify-content: center;
+        align-items: center;
+
+        & img {
+        height: 40px;
+      }
+      }
+
+
+
+        & form {
+          display: flex;
+          justify-self: end;
+          position: relative;
+
+          --_r : 15px;
+
+          &>* {
+            padding: 8px 15px;
+            border: 1px solid var(--clr-gray);
+          }
+
+          & input {
+            border-radius: var(--_r);
+            padding-right: 50px;
+          }
+
+          & button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: var(--_r);
+            background-color: var(--clr-primary);
+            cursor: pointer;
+
+            position: absolute;
+            right: 1px;
+            top: 50%;
+
+            translate: 0 -50%;
+
+            &:hover,&:focus{
+              background-color: var(--clr-primary-shade);
+              & img{
+              animation: shake .3s ease;
+              animation-iteration-count: 2;
+              animation-delay: .1s;
+              }
+            }
+
+            & img{
+              height: 1rem;
+              transform-origin: bottom right;
+            }
+
+          }
+        }
+      
+    }
+
+    & .links {
+      background-color: var(--clr-primary);
+
+
+      & nav {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(max(12vw,120px),1fr));
+
+        &:has(a:hover) a:not(:hover){
+          opacity: .6;
+        }
+        
+        & a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: .5rem 2rem;
+
+          text-align: center;
+          text-wrap: balance;
+
+          background-color: var(--clr-primary);
+          color: white;
+          
+          font-size: var(--fs-200);
+
+          &:hover{
+            background-color: var(--clr-primary-shade);
+          }
+        }
+      }
+
+    }
+  }
+
+  @keyframes shake {
+    0%,100%{
+      rotate: 0deg;
+    }
+    25%{
+      rotate: 10deg;
+    }
+    75%{
+      rotate: -10deg;
+    }
+  }
+</style>
+
+<script src="/js/_header.js"></script>

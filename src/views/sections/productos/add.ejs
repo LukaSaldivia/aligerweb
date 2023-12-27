@@ -1,0 +1,53 @@
+<%- include('../../components/_head.ejs' , {title : 'Aliger-Admin - Nuevo Producto'}) %>
+
+<form action="./add" method="post" enctype="multipart/form-data">
+  <label for="nombre">
+    Nombre
+    <input type="text" name="nombre" id="nombre">
+  </label>
+  <label for="precio">
+    Precio
+    <input type="number" id="precio" name="precio">
+  </label>
+  <label for="empresa">
+    Empresa
+    <select name="empresa" id="empresa">
+      <option value="0">Uno</option>
+      <option value="1">Dos</option>
+      <option value="2">Tres</option>
+    </select>
+  </label>
+  <label for="venta">
+    Venta
+    <select name="venta" id="venta">
+      <option value="0">Uno</option>
+      <option value="1">Dos</option>
+      <option value="2">Tres</option>
+    </select>
+  </label>
+
+  <label for="stock">
+    Stock
+    <input type="number" id="stock" name="stock">
+  </label>
+  <label for="descripcion">
+    Descripcion
+    <textarea name="descripcion" id="descripcion" cols="50" rows="10"></textarea>
+  </label>
+
+  <label for="categoria">
+    Categoría
+    <select name="categoria" id="categoria">
+      <option value="0">Uno</option>
+      <option value="1">Dos</option>
+      <option value="2">Tres</option>
+    </select>
+  </label>
+
+  <label for="foto">
+    <input type="file" name="foto" id="foto" accept="image/png, image/jpeg, image/jpg">
+  </label>
+
+  <input type="submit" value="Enviarrrr">
+
+</form>

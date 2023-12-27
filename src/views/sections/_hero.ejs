@@ -1,0 +1,82 @@
+<div anner-section-hero>
+  <h1>Más de 20 años entregando <span>éxito</span> en forma de <span>productos.</span></h1>
+  <p>Seguridad y confianza en el rubro nos avalan.</p>
+  <div class="mapa" aria-hidden="true">
+    <img src="./img/tandil.svg" alt="Mapa de Tandil, ciudad origen de Aliger">
+  </div>
+
+</div>
+
+<style>
+  [anner-section-hero]{
+
+
+    display: grid;
+
+    grid-template-columns: 
+      [title-start text-start map-start] auto [title-end text-end map-end];
+
+    grid-template-rows: 
+      [map-start] .5fr
+      [title-start] auto
+      [title-end text-start ] auto 
+      [text-end] 1fr
+      [map-end]
+      ;
+
+    
+
+    align-items: center;
+
+    row-gap: 1rem;
+
+    & h1{
+      grid-area: title;
+      z-index: 2;
+      text-wrap: balance;
+      justify-self: center;
+      max-width: fit-content;
+      text-align: center;
+      color: var(--clr-header);
+
+      & span{
+        color: var(--clr-primary-light);
+        font-family: inherit;
+      }
+    }
+
+    & p{
+      grid-area: text;
+      z-index: 2;
+      text-align: center;
+
+    }
+
+    & .mapa{
+      grid-area: map;
+      display: grid;
+      place-content: center;
+      pointer-events: none;
+      height: 400px;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+
+          &::after{
+            content: '';
+            position: absolute;
+            background: linear-gradient(180deg, transparent, var(--clr-background) 60%);
+            inset: 0;
+            height: 100%;
+            z-index: 0;
+          }
+
+
+      & img{
+        max-width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+</style>

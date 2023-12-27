@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica+SC&family=Manrope:wght@200;500;700&family=Montserrat:wght@100;200;300;400;500&family=Poppins:wght@300;400;600;700;800&family=Raleway:wght@100;200;500&family=Staatliches&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 :root{
   --clr-background: #f2f2f2;
   --clr-background-shade: #dbe0e7;
-  --clr-primary: #000fe4;
+  --clr-primary: #00009e;
+  --clr-primary-light: #4b57ff;
   --clr-primary-shade: #001d6d;
-  --clr-secondary: #5959f3;
+  --clr-secondary: #2400c5;
   --clr-accent: #7858b3; 
   --clr-gray : #ddd;
+
+  --clr-header: #222;
+  --clr-body: #444;
 
   --fs-100: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
   --fs-200: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
@@ -19,7 +21,8 @@
   --fs-700: clamp(2.3325rem, 2.0823rem + 1.2511vw, 3.0519rem);
   --fs-800: clamp(2.7994rem, 2.4461rem + 1.7663vw, 3.815rem);
 
-  --ff-base: 'Manrope',sans-serif;
+  --ff-base: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+  --ff-header : 'Poppins',"Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
 }
 
 *,::before,::after{
@@ -60,14 +63,19 @@
 body{
   background-color: var(--clr-background);
   font-size: var(--fs-200);
-  min-height: 500vh;
+  display: grid;
+  color: var(--clr-body);
+
+  grid-template-rows: auto 1fr auto;
+
 }
 
 p,a{
-  font-size: var(--fs-100);
+  font-size: 1rem;
 }
 
 a{
+  font-size: var(--fs-100);
   color: var(--clr-secondary);
   text-decoration: none;
 }
@@ -88,3 +96,8 @@ input{
   caret-color: var(--clr-primary);
 }
 
+h1,h2,h3,h4,h5,h6{
+  font-family: var(--ff-header);
+  text-wrap: balance;
+  color: var(--clr-headers);
+}

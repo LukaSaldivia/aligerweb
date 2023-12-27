@@ -1,5 +1,5 @@
 import db from '../database/db.js'
-import { uuid } from 'uuidv4'
+import { v4 as uuid } from 'uuid'
 
 class Model{
   constructor(table_name = ''){
@@ -19,9 +19,9 @@ class Model{
   async create(data){
 
     data.id = uuid()
+
     try {
       let insert = await this.db.query(`INSERT INTO ${this.TABLE} (${Object.keys(data)}) VALUES (?);`, [Object.values(data)])
-      console.log(insert);
       return insert
     } catch (error) {
       return error

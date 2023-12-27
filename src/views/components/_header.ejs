@@ -5,6 +5,13 @@
     <a href="/login">¿Sos cliente? Acceder</a>
   </div>
     <main>
+
+      <label for="hamb">
+        <div class="line"></div>
+        <div class="line"></div>
+        <input type="checkbox" name="hamb" id="hamb">
+      </label>
+
     <a href="/">
       <img src="/img/aliger-logo.jpg" alt="Logo de Aliger">
     </a>
@@ -18,7 +25,7 @@
 
   <div class="full-width links">
     <nav>
-      <a href="/">Inicio</a><a href="/">Productos</a><a href="">Acerca de nosotros</a><a href="">Contacto</a>
+      <a href="/">Inicio</a><a href="/">Catálogo</a><a href="about">Acerca de nosotros</a><a href="">Contacto</a>
     </nav>
   </div>
 
@@ -30,6 +37,7 @@
     background-color: var(--clr-background);
     position: sticky;
     row-gap: 1rem;
+    z-index: 99999;
 
     &.active{
       top : var(--_top);
@@ -53,11 +61,19 @@
     
     & main{
       display: grid;
-      grid-template-columns: auto 1fr;
+      grid-template-columns: 0 auto 1fr;
       grid-template-rows: 1fr;
       justify-items: center;
       align-items: center;
 
+      & label[for="hamb"]{
+        display: hidden;
+        pointer-events: none;
+
+          & input[type="checkbox"]{
+            display: none;
+          }
+      }
 
 
 
@@ -109,7 +125,7 @@
             &:hover,&:focus{
               background-color: var(--clr-primary-shade);
               & img{
-              animation: shake .3s ease;
+              animation: shake .35s ease-in;
               animation-iteration-count: 2;
               animation-delay: .1s;
               }
@@ -132,10 +148,6 @@
       & nav {
         display: grid;
         grid-template-columns: repeat(auto-fit,minmax(max(12vw,120px),1fr));
-
-        &:has(a:hover) a:not(:hover){
-          opacity: .6;
-        }
         
         & a {
           display: flex;
@@ -150,7 +162,6 @@
           color: white;
           
           font-size: var(--fs-200);
-
           &:hover{
             background-color: var(--clr-primary-shade);
           }
@@ -161,15 +172,90 @@
   }
 
   @keyframes shake {
-    0%,100%{
+    0%,75%,100%{
       rotate: 0deg;
     }
     25%{
       rotate: 10deg;
     }
-    75%{
-      rotate: -10deg;
+  }
+
+  @media screen and (max-width : 813px) {
+  
+    [anner-header]{
+
+      border-bottom: 2px solid var(--clr-background-shade);
+      & .contact{
+        display: none;
+      }
+      
+      & main{
+        grid-template-columns: 1fr 2fr 1fr;
+
+        padding-block: 1rem;
+
+        & label[for="hamb"]{
+            position: relative;
+            pointer-events: all;
+            width: 35px;
+            aspect-ratio: 1;
+            gap: 4px;
+
+            & .line{
+              --distance : 13.5px;
+              position: absolute;
+              left: 0;
+              width: 100%;
+              background-color: var(--clr-primary);
+              height: 3px;
+              transition: width .3s .2s ,rotate .3s, top .3s;
+              border-radius: 3000px;
+              
+              &:nth-child(1){
+                top: var(--distance);
+              }
+              
+              &:nth-child(2){
+                width: 25px;
+                bottom: var(--distance);
+              }
+            }
+            
+            & input[type="checkbox"]{
+              display: hidden;
+            }
+            
+            &:has(input[type="checkbox"]:checked) .line{
+              transition: width .3s .3s ,rotate .3s .3s, top .3s;
+              width: 100%;
+              top: 50%;
+              rotate: 45deg;
+
+              &:nth-child(2){
+                rotate: -45deg;
+              }
+
+            }
+
+          }
+
+          & >a{
+            margin-block: auto;
+          }
+
+          & [role="search"]{
+            width: 10px;
+            overflow: hidden;
+            visibility: hidden;
+          }
+      }
+
+      & .links{
+        display: none;
+      }
+
     }
+
   }
 </style>
 

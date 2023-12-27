@@ -15,7 +15,6 @@ const __dirname = path.dirname(__filename);
 import adminRoutes from './routes/admin/admin.js'
 import pageRoutes from './routes/page/page.js'
 
-import { adminOnly } from './middlewares/auth.middleware.js';
 import cookieParser from 'cookie-parser';
 
 const app = express()
@@ -42,6 +41,6 @@ app.use(express.static(path.join(__dirname,'public')))
 
 
 app.listen(app.get('port'),()=>{
-  console.log('Server on port',app.get('port'));
+  console.log('\x1b[33m%s\x1b[0m',`http://localhost:${app.get('port')}`);
 })
 

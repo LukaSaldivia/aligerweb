@@ -4,7 +4,7 @@ import controller from "../../controllers/usuarios.controller.js"
 const router = Router()
 
 router.get('/', (req, res) => {
-  res.render('login')
+  res.render('sections/usuarios/login')
 })
 
 router.get('/o',(req, res) => {
